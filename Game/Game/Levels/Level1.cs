@@ -11,7 +11,7 @@ namespace Game.Levels
 
         public static string Hello(string user_name)
         {
-            return string.Empty;
+            return string.Format("{0}, {1}!", "Hello",user_name);
         }
     }
 }
