@@ -8,5 +8,10 @@ namespace Game.Levels
         {
             return "Hello, World!";
         }
+
+        public static string Hello(string user_name)
+        {
+            return string.Empty;
+        }
     }
 }

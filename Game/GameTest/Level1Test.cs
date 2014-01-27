@@ -76,6 +76,19 @@ namespace GameTest
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod()]
+        public void HelloTest1()
+        {
+            string param = "My lord";
+            string actual;
+
+            string expected = "Hello, My lord!";
+            actual = Level1.Hello(param);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
         /// <summary>
         ///A test for Level1 Constructor
         ///</summary>
