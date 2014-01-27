@@ -89,6 +89,58 @@ namespace GameTest
 
         }
 
+        [TestMethod()]
+        public void HelloTest4()
+        {
+            string param = "pavel";
+            string actual;
+
+            string expected = "Hello, Pavel.";
+            actual = Level1.Hello(param);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod()]
+        public void HelloTest2()
+        {
+            string param = "Igor";
+            string actual;
+
+            string expected = "Hello, Igor!";
+            actual = Level1.Hello(param);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod()]
+        public void HelloTest3()
+        {
+            string param = "sergei ivanovich";
+            string actual;
+
+            string expected = "Hello, Sergei Ivanovich.";
+            actual = Level1.Hello(param);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod()]
+        public void HelloTest5()
+        {
+            string param = "Julien";
+            string actual;
+
+            string expected = "Hello, Julien!";
+            actual = Level1.Hello(param);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
         /// <summary>
         ///A test for Level1 Constructor
         ///</summary>
