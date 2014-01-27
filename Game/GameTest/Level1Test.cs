@@ -63,7 +63,20 @@ namespace GameTest
         //
         #endregion
 
-
+        public static Random rand
+        {
+            get
+            {
+                if (rand == null)
+                {
+                    rand = new Random(int.Parse(DateTime.Now.Ticks.ToString()));
+                }
+                return rand;
+            }
+            set{
+                rand = value;
+            }
+        }
         /// <summary>
         ///A test for HelloWorld
         ///</summary>
@@ -136,6 +149,94 @@ namespace GameTest
 
             string expected = "Hello, Julien!";
             actual = Level1.Hello(param);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+
+        [TestMethod()]
+        public void TestFizzBuzz1()
+        {
+            int param = 1;
+            string actual;
+
+            string expected = "1";
+            actual = Level1.FizzBuzzTest(param);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod()]
+        public void TestFizzBuzz2()
+        {
+            int param = 2;
+            string actual;
+
+            string expected = "2";
+            actual = Level1.FizzBuzzTest(param);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod()]
+        public void TestFizzBuzz3()
+        {
+            int param = (rand.Next() % 100) * 3 * 5 + 1;
+            string actual;
+
+            string expected = param.ToString();
+            actual = Level1.FizzBuzzTest(param);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        public void TestFizzBuzz4()
+        {
+            int param = (rand.Next() % 100)*5 * 3 + 3 ;
+            string actual;
+
+            string expected = "Fizz";
+            actual = Level1.FizzBuzzTest(param);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        public void TestFizzBuzz5()
+        {
+            int param = (rand.Next() % 100) * 3*5 + 5;
+            string actual;
+
+            string expected = "Buzz";
+            actual = Level1.FizzBuzzTest(param);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        public void TestFizzBuzz6()
+        {
+            int param = 5;
+            string actual;
+
+            string expected = "Buzz";
+            actual = Level1.FizzBuzzTest(param);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        public void TestFizzBuzz7()
+        {
+            int param = 3;
+            string actual;
+
+            string expected = "Fizz";
+            actual = Level1.FizzBuzzTest(param);
 
             Assert.AreEqual(expected, actual);
 

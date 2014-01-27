@@ -13,5 +13,10 @@ namespace Game.Levels
         {
             return string.Format("{0}, {1}!", "Hello",user_name);
         }
+
+        public static string FizzBuzzTest(int i)
+        {
+            return string.Empty;
+        }
     }
 }
