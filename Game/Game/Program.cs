@@ -9,6 +9,7 @@ namespace Game
     {
         static void Main(string[] args)
         {
+            Levels.Level1.StringReverse("abc", "abcabc");
         }
     }
 }

@@ -65,9 +65,37 @@ namespace Game.Levels
                     return i.ToString();
         }
 
+        private static string makeString(string str, int length)
+        {
+            if (str.Length >= length)
+                return str;
+            int num = length - str.Length;
+            for (int i = 0; i < num; ++i)
+                str += str[i];
+            return str;
+        }
+
         public static string StringReverse(string a, string b)
         {
-            return string.Empty;
+            int maxLength = a.Length > b.Length ? a.Length : b.Length;
+            a = makeString(a,maxLength);
+            b = makeString(b,maxLength);
+            string second = "";
+            for (int i = 0; i < b.Length; ++i)
+            {
+                if (char.IsLower(b[i]))
+                    second += b[i].ToString().ToUpper();
+                else
+                    if (char.IsUpper(b[i]))
+                        second += b[i].ToString().ToLower();
+            }
+            string rez = "";
+            for (int i = 0; i < maxLength; ++i)
+            {
+                rez += a[i];
+                rez += second[i];
+            }
+            return rez;
         }
     }
 }
