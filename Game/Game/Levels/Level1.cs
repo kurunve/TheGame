@@ -64,5 +64,10 @@ namespace Game.Levels
                 else
                     return i.ToString();
         }
+
+        public static string StringReverse(string a, string b)
+        {
+            return string.Empty;
+        }
     }
 }

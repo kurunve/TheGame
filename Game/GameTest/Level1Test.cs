@@ -67,15 +67,13 @@ namespace GameTest
         {
             get
             {
-                if (rand == null)
-                {
-                    rand = new Random(int.Parse(DateTime.Now.Ticks.ToString()));
-                }
-                return rand;
+              //  if (rand == null)
+                //{
+                    return new Random(int.Parse((DateTime.Now.Millisecond).ToString()));
+                //}
+                //return rand;
             }
-            set{
-                rand = value;
-            }
+            set { rand = value; }
         }
         /// <summary>
         ///A test for HelloWorld
@@ -182,7 +180,7 @@ namespace GameTest
         }
 
         [TestMethod()]
-        public void TestFizzBuzz3()
+        public void     TestFizzBuzz3()
         {
             int param = (rand.Next() % 100) * 3 * 5 + 1;
             string actual;
@@ -193,7 +191,7 @@ namespace GameTest
             Assert.AreEqual(expected, actual);
 
         }
-
+        [TestMethod()]
         public void TestFizzBuzz4()
         {
             int param = (rand.Next() % 100)*5 * 3 + 3 ;
@@ -205,7 +203,7 @@ namespace GameTest
             Assert.AreEqual(expected, actual);
 
         }
-
+        [TestMethod()]
         public void TestFizzBuzz5()
         {
             int param = (rand.Next() % 100) * 3*5 + 5;
@@ -229,7 +227,7 @@ namespace GameTest
             Assert.AreEqual(expected, actual);
 
         }
-
+        [TestMethod()]
         public void TestFizzBuzz7()
         {
             int param = 3;
@@ -241,7 +239,71 @@ namespace GameTest
             Assert.AreEqual(expected, actual);
 
         }
+        [TestMethod()]
+        public void TestReverseString()
+        {
+            string par1 = "abc";
+            string par2 = "abc";
 
+            string expected = "aAbBcC";
+            string actual = Level1.StringReverse(par1,par2);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+
+        [TestMethod()]
+        public void TestReverseString2()
+        {
+            string par1 = "abc";
+            string par2 = "ABC";
+
+            string expected = "aabbcc";
+            string actual = Level1.StringReverse(par1, par2);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod()]
+        public void TestReverseString3()
+        {
+            string par1 = "abc";
+            string par2 = "abcabc";
+
+            string expected = "aAbBcCaAbBcC";
+            string actual = Level1.StringReverse(par1, par2);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod()]
+        public void TestReverseString4()
+        {
+            string par1 = "abc";
+            string par2 = "xyzxyz";
+
+            string expected = "aXbYcZaXbYcZ";
+            string actual = Level1.StringReverse(par1, par2);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod()]
+        public void TestReverseString5()
+        {
+            string par1 = "ABC";
+            string par2 = "xy";
+
+            string expected = "AXBYCX";
+            string actual = Level1.StringReverse(par1, par2);
+
+            Assert.AreEqual(expected, actual);
+
+        }
         /// <summary>
         ///A test for Level1 Constructor
         ///</summary>
