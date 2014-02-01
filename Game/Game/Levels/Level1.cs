@@ -98,9 +98,20 @@ namespace Game.Levels
             return rez;
         }
 
+        private static int findSumOfAllDigids(string str)
+        {
+            int rez = 0;
+            for (int i = 0; i < str.Length; ++i)
+                if (char.IsDigit(str[i]))
+                    rez += int.Parse(str[i].ToString());
+            return rez;
+        }
+
         public static int freakyMethod(string a, string b)
         {
-            return int.MinValue;
+            int firstSum = findSumOfAllDigids(a);
+            int secondSum = findSumOfAllDigids(b);
+            return firstSum - secondSum;
         }
     }
 }
