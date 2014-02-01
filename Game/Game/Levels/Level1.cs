@@ -97,5 +97,10 @@ namespace Game.Levels
             }
             return rez;
         }
+
+        public static int freakyMethod(string a, string b)
+        {
+            return int.MinValue;
+        }
     }
 }

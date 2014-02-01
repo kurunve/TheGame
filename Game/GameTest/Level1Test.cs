@@ -305,14 +305,54 @@ namespace GameTest
             Assert.AreEqual(expected, actual);
 
         }
-        /// <summary>
-        ///A test for Level1 Constructor
-        ///</summary>
+
         [TestMethod()]
-        public void Level1ConstructorTest()
+        public void testFreakyMethod()
         {
-            Level1 target = new Level1();
-            Assert.IsTrue(true,"Test Class is not ready");
+            string par1 = "master1master2master3master5";
+            string par2 = "lamaster1lamaster2lamaster4lamaster4";
+
+            int expected = 0;
+            int actual = Level1.freakyMethod(par1, par2);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod()]
+        public void testFreakyMethod2()
+        {
+            string par1 = "agfsdfg5adgadfg6adsaadsfk3k34";
+            string par2 = "sdhdhdfhjdhjdjketujdfndfyhjdtjmud12";
+
+            int expected = 18;
+            int actual = Level1.freakyMethod(par1, par2);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+
+        [TestMethod()]
+        public void testFreakyMethod3()
+        {
+            string par1 = "11223344332211";
+            string par2 = "1234123455665566";
+
+            int expected = -32;
+            int actual = Level1.freakyMethod(par1, par2);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void testFreakyMethod4()
+        {
+            string par1 = "argagarda1arbbffbbff";
+            string par2 = "4errt5";
+
+            int expected = -8;
+            int actual = Level1.freakyMethod(par1, par2);
+
+            Assert.AreEqual(expected, actual);
         }
     }
 }
