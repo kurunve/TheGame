@@ -20,23 +20,30 @@ namespace Game.Levels
             bool flag = false;
             string[] mass = user_name.Split(' ');
             string name = "";
-            for (int i = 0; i < mass.Length; ++i)
+            if (char.GetUnicodeCategory(mass[0][0]) == System.Globalization.UnicodeCategory.UppercaseLetter)
             {
-                if (mass[i].ToLower() == mass[i])
+                name = user_name;
+            }
+            else
+            {
+                for (int i = 0; i < mass.Length; ++i)
                 {
-                    string temp = "";
-                    temp += mass[i][0];
-                    temp = temp.ToUpper();
-                    for (int j = 1; j < mass[i].Length; ++j)
-                        temp += mass[i][j];
+                    if (char.GetUnicodeCategory(mass[i][0]) == System.Globalization.UnicodeCategory.LowercaseLetter)
+                    {
+                        string temp = "";
+                        temp += mass[i][0];
+                        temp = temp.ToUpper();
+                        for (int j = 1; j < mass[i].Length; ++j)
+                            temp += mass[i][j];
 
-                    name += temp + " ";
-                    flag = true;
-                }
+                        name += temp + " ";
+                        flag = true;
+                    }
 
-                else
-                {
-                    name += mass[i];
+                    else
+                    {
+                        name += mass[i];
+                    }
                 }
             }
             if (flag == false)
@@ -49,7 +56,13 @@ namespace Game.Levels
 
         public static string FizzBuzzTest(int i)
         {
-            return string.Empty;
+            if (i % 3 == 0)
+                return "Fizz";
+            else
+                if (i % 5 == 0)
+                    return "Buzz";
+                else
+                    return i.ToString();
         }
     }
 }
