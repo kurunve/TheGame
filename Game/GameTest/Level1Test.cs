@@ -182,7 +182,8 @@ namespace GameTest
         [TestMethod()]
         public void     TestFizzBuzz3()
         {
-            int param = (rand.Next() % 100) * 3 * 5 + 1;
+            Random r = new Random();
+            int param = (r.Next() % 100) * 3 * 5 + 1;
             string actual;
 
             string expected = param.ToString();
