@@ -128,45 +128,98 @@ namespace Game.Levels
         }
         public class BitArray:IComparable,ICloneable
         {
-            //0 or 1 should return 
+            BitValue[] bits; 
 
             public int getLengthOfArray()
             {
-                return 0;
+                return bits.Length;
+            }
+
+            public BitArray()
+            { 
             }
 
             public BitArray(string init_number)
             {
-
+                int parameter;
+                bool flag = Int32.TryParse(init_number, out parameter);
+                if (flag)
+                    bits = TransferNumber(parameter);
             }
+
             public BitArray(int init_number)
             {
+                bits = TransferNumber(init_number);
+            }
+
+            private BitValue[] TransferNumber(int init_number)
+            {
+                System.Text.StringBuilder str = new System.Text.StringBuilder();
+                while (init_number != 0)
+                {
+                    str.Append(init_number % 2);
+                    init_number /= 2;
+                }
                 
+                BitValue[] mass = new BitValue[str.Length];
+                for (int i = 0; i < str.Length; ++i)
+                {
+                    if (str[str.Length - 1 - i] == '1')
+                        mass[i] = BitValue.One;
+                    else
+                        if (str[str.Length - 1 - i] == '0')
+                            mass[i] = BitValue.Zero;
+                }
+                return mass;
             }
 
             public object Clone()
             {
-                return new object();
+                BitArray anotherArray = new BitArray();
+                anotherArray.bits = new BitValue[this.getLengthOfArray()];
+                for (int i = 0; i < this.getLengthOfArray(); ++i)
+                    anotherArray.bits[i] = this.bits[i];
+                return anotherArray;
             }
 
-            public int CompareTo(Object ob)
+            public int CompareTo(Object obj)
             {
-                return 0;
+                BitArray anotherArray = obj as BitArray;
+                if (anotherArray != null)
+                    return this.getBitsInt().CompareTo(anotherArray.getBitsInt());
+                else
+                    throw new System.ArgumentException("Invalid parameter");
+                
             }
 
             public void invertBits()
             {
-                
+                for (int i = 0; i < bits.Length; ++i)
+                {
+                    if (bits[i] == BitValue.One)
+                        bits[i] = BitValue.Zero;
+                    else
+                        if (bits[i] == BitValue.Zero)
+                            bits[i] = BitValue.One;
+                }
             }
 
             public string getBits()
             {
-                return "";
+                System.Text.StringBuilder str = new System.Text.StringBuilder(bits.Length);
+                for (int i = 0; i < bits.Length; ++i)
+                    str.Append((int)bits[i]);
+                return str.ToString();
             }
 
             public int getBitsInt()
             {
-                return 0;
+                int rez = 0;
+                for (int i = 0; i < this.getLengthOfArray(); ++i)
+                {
+                    rez += ((int)(bits[this.getLengthOfArray() - 1 - i])) * (int)System.Math.Pow(2, i);
+                }
+                return rez;
             }
 
         }

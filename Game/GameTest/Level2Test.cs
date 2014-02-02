@@ -101,7 +101,7 @@ namespace GameTest
 
             Level2.BitArray bitArrayTest = new Level2.BitArray(5);
 
-            string expected_result = "100";
+            string expected_result = "101";
             string actual_result = bitArrayTest.getBits();
 
             Assert.AreEqual(expected_result, actual_result);
@@ -134,7 +134,7 @@ namespace GameTest
             Level2.BitArray bitArrayTest = new Level2.BitArray(17);
             bitArrayTest.invertBits();
             bitArrayTest.invertBits();
-            Assert.AreEqual(bitArrayTest.getBitsInt(), 1);
+            Assert.AreEqual(bitArrayTest.getBitsInt(), 17);
         }
 
 
