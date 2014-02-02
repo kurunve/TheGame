@@ -113,5 +113,10 @@ namespace Game.Levels
             int secondSum = findSumOfAllDigids(b);
             return firstSum - secondSum;
         }
+
+        public static int easyMethod(int a, int b)
+        {
+            return 0;
+        }
     }
 }

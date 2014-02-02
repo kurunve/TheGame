@@ -354,5 +354,55 @@ namespace GameTest
 
             Assert.AreEqual(expected, actual);
         }
+
+
+        [TestMethod()]
+        public void testEasyMethod1()
+        {
+            int par1 = 1;
+            int par2 = 1;
+
+            int expected = 0;
+            int actual = Level1.easyMethod(par1, par2);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+
+        [TestMethod()]
+        public void testEasyMethod2()
+        {
+            int par1 = rand.Next();
+            int par2 = par1;
+
+            int expected = 0;
+            int actual = Level1.easyMethod(par1, par2);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void testEasyMethod3()
+        {
+            int par1 = 112;
+            int par2 = 111;
+
+            int expected = -1;
+            int actual = Level1.easyMethod(par1, par2);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void testEasyMethod4()
+        {
+            int par1 = rand.Next();
+            int par2 = par1 + 1;
+
+            int expected = 1;
+            int actual = Level1.easyMethod(par1, par2);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
