@@ -118,5 +118,57 @@ namespace Game.Levels
             { 
             }
         }
+
+
+
+
+        public enum BitValue
+        {
+            Zero,One
+        }
+        public class BitArray:IComparable,ICloneable
+        {
+            //0 or 1 should return 
+
+            public int getLengthOfArray()
+            {
+                return 0;
+            }
+
+            public BitArray(string init_number)
+            {
+
+            }
+            public BitArray(int init_number)
+            {
+                
+            }
+
+            public object Clone()
+            {
+                return new object();
+            }
+
+            public int CompareTo(Object ob)
+            {
+                return 0;
+            }
+
+            public void invertBits()
+            {
+                
+            }
+
+            public string getBits()
+            {
+                return "";
+            }
+
+            public int getBitsInt()
+            {
+                return 0;
+            }
+
+        }
     }
 }
