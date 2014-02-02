@@ -8,7 +8,7 @@ namespace Game.Levels
     public class Level2
     {
 
-        public interface IMyCoolInferface
+        public interface IMyCoolInterface
         {
             string getName();
             string getDescription();
@@ -16,42 +16,33 @@ namespace Game.Levels
             void increaseQuality();
         }
 
-
-        public class CoolBuilder : IMyCoolInferface
+        public class CoolObject : IMyCoolInterface
         {
+            private CoolBuilder builder;
 
-            private string Name;
-            private int Quality;
-            
-            public CoolBuilder()
+            public CoolObject ()
             {
+                builder = new CoolBuilder();
             }
 
-            public CoolBuilder setName(string name)
+            public CoolObject(CoolBuilder b)
             {
-                this.Name = name;
-                return this;
-            }
-
-            public CoolBuilder setQuality(int quality)
-            {
-                this.Quality = quality;
-                return this;
+                builder = b;
             }
 
             public string getName()
             {
-                return Name;
+                return builder.Name;
             }
 
             public string getDescription()
             {
-                if (char.IsUpper(Name[0]))
-                    return string.Format("Name: {0} ; Quality: {1}", Name, Quality);
+                if (char.IsUpper(builder.Name[0]))
+                    return string.Format("Name: {0} ; Quality: {1}", builder.Name, builder.Quality);
                 else
                 {
                     string newName = "";
-                    string[] mass = Name.Split(' ');
+                    string[] mass = builder.Name.Split(' ');
                     for (int i = 0; i < mass.Length; ++i)
                     {
                         newName += mass[i][0].ToString().ToUpper();
@@ -59,25 +50,65 @@ namespace Game.Levels
                             newName += mass[i][j];
                         newName += " ";
                     }
-                    return string.Format("Name: {0} ; Quality: {1}", newName, Quality);
+                    return string.Format("Name: {0} ; Quality: {1}", newName, builder.Quality);
                 }
             }
 
             public int getQuality()
             {
-                return Quality;
+                return builder.Quality;
             }
 
             public void increaseQuality()
             {
-                Quality++;
+                builder.setQuality(builder.Quality+1);
+            }
+        }
+
+
+        public class CoolBuilder
+        {
+
+            private string name;
+            public string Name
+            {
+                get
+                {
+                    return name;
+                }
+            }
+            private int quality;
+            public int Quality
+            {
+                get
+                {
+                    return quality;
+                }
+            }
+            
+            public CoolBuilder()
+            {
             }
 
-            public IMyCoolInferface build()
+            public CoolBuilder setName(string _name)
+            {
+                this.name = _name;
+                return this;
+            }
+
+            public CoolBuilder setQuality(int _quality)
+            {
+                this.quality = _quality;
+                return this;
+            }
+
+            
+
+            public IMyCoolInterface build()
             {
                 if (Name == null)
                     throw new MissingNameException("Name should be specified");
-                return (IMyCoolInferface)this;
+                return new CoolObject(this);
             }
         }
 

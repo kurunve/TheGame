@@ -40,7 +40,7 @@ namespace GameTest
             String testName = "My Name";
             int quality = 22;
             Level2.CoolBuilder builder = new Level2.CoolBuilder();
-            Level2.IMyCoolInferface testImplementation = builder.setName(testName).setQuality(quality).build();
+            Level2.IMyCoolInterface testImplementation = builder.setName(testName).setQuality(quality).build();
             Assert.AreEqual(testName,testImplementation.getName());
             Assert.IsTrue(testImplementation.getDescription().Contains("Name: " + testName));
             Assert.IsTrue(testImplementation.getDescription().Contains("Quality: " + quality));
@@ -53,7 +53,7 @@ namespace GameTest
         {
             String testName = "some name";
             Level2.CoolBuilder builder = new Level2.CoolBuilder();
-            Level2.IMyCoolInferface testImplementation = builder.setName(testName).build();
+            Level2.IMyCoolInterface testImplementation = builder.setName(testName).build();
             Assert.AreEqual(testName, testImplementation.getName());
             Assert.IsTrue(testImplementation.getDescription().Contains("Name: Some Name"));
             Assert.IsTrue(testImplementation.getDescription().Contains("Quality: 0"));
@@ -68,7 +68,7 @@ namespace GameTest
             Level2.CoolBuilder builder = new Level2.CoolBuilder();
             try
             {
-                Level2.IMyCoolInferface testImplementation = builder.build();
+                Level2.IMyCoolInterface testImplementation = builder.build();
             }
             catch(Level2.MissingNameException ex)
             {
