@@ -116,7 +116,7 @@ namespace Game.Levels
 
         public static int easyMethod(int a, int b)
         {
-            return 0;
+            return b - a;
         }
     }
 }

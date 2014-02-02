@@ -48,6 +48,7 @@ namespace GameTest
             Assert.AreNotEqual(quality,testImplementation.getQuality());
         }
 
+        [TestMethod()]
         public void Level2FirstTest2()
         {
             String testName = "some name";
@@ -60,6 +61,7 @@ namespace GameTest
             Assert.AreNotEqual(0, testImplementation.getQuality());
         }
 
+        [TestMethod()]
         public void Level2FirstTest3()
         {
 
@@ -67,7 +69,8 @@ namespace GameTest
             try
             {
                 Level2.IMyCoolInferface testImplementation = builder.build();
-            }catch(Level2.MissingNameException ex)
+            }
+            catch(Level2.MissingNameException ex)
             {
                 Assert.IsTrue(ex.Message.Contains("Name should be specified"));
                 return;
